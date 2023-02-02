@@ -1,0 +1,76 @@
+name: "Issue Report"
+description: "Yikes, have a genuine problem? Use this template to report it!"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out a bug report! Before you submit, please make sure to ensure the following is kept up with:
+
+        - that the issue in question is a security issue, or a genine bug report
+        - that the issue in question is not already in the [issue tracker](https://github.com/irisu01/composer/issues).
+        
+        ---
+
+  - type: checkboxes
+    attributes:
+      label: Is this report already in the issue tracker?
+      description: Please ensure to check if the issue report is already in the [issue tracker](https://github.com/irisu01/sulfurous/issues).
+      options:
+      - label: "I have checked the issue tracker and this report is not already in the issue tracker."
+        required: true
+
+  - type: textarea
+    attributes:
+      label: Describe the issue in question
+      description: Please describe the issue in question in as much detail as possible.
+      placeholder: I have an issue with..., I have a problem with..., I have a bug with...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Describe the steps to reproduce the issue
+      description: Please describe the steps to reproduce the issue in as much detail as possible.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Describe the expected behaviour
+      description: Please describe the expected behaviour in as much detail as possible.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+
+  - type: input
+    attributes:
+      label: Sulfurous Version
+      description: Please enter the version of Composer that you are using.
+      placeholder: 2022.100.01
+    validations:
+      required: true
+      required: true
+  
+  - type: input
+    attributes:
+      label: Operating System
+      description: Please enter the operating system you are using.
+      placeholder: Windows 10
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: Please enter any additional context you would like to provide.
+    validations:
+      required: false
