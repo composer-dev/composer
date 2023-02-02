@@ -19,10 +19,10 @@ jobs:
       - checkout
       # Then simply use the dotnet container as you'd expect and run your tests
       - run:
-          working_directory: ~/Project
+          working_directory: ~/project
           name: Build composer
           command: |
-            dotnet build -c Debug -warnaserror composer.Editor
+            dotnet build -c Debug -warnaserror --project composer.Editor
       - run:
           # Update this line with the directory that contains your tests project file
           working_directory: ~/project/App.Tests
