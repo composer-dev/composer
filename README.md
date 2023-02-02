@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="https://cdn.discordapp.com/attachments/963190640928256071/1069672090871025785/Group_6.png" />
+	<img src="https://cdn.discordapp.com/attachments/963190640928256071/1069672090871025785/Group_6.png" height="235" />
 	<p>
 		An expansive and expressive editor made for the <a href="https://osu.ppy.sh" target="_blank" />osu!</a> game.
 	</p>
