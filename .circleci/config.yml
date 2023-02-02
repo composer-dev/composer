@@ -22,7 +22,7 @@ jobs:
             dotnet build -c Debug -warnaserror composer.Editor
       - run:
           # Update this line with the directory that contains your tests project file
-          working_directory: ~/project/composer.Editor.Tests
+          working_directory: ~/project/composer.Tests
           name: Run tests
           command: |
             dotnet test
