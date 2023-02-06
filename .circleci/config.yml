@@ -2,24 +2,32 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@3.2.3
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build-job:
-    docker:
-      - image: mcr.microsoft.com/dotnet/sdk:6.0
-      - image: mcr.microsoft.com/dotnet/runtime:6.0
+    machine:
+      image: ubuntu-2022:current
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       # Checkout the code as the first step.
       - checkout
-      # Then simply use the dotnet container as you'd expect and run your tests
+      - run:
+          name: Install .NET 6.0
+          command: sudo apt-get install -y dotnet-sdk.6.0
       - run:
           working_directory: ~/project
-          name: Build composer
-          command: |
-            dotnet build -c Debug -warnaserror composer.Editor
+          name: Build Composer
+          command: dotnet build -c Debug -warnaserror composer.Editor
+      - run:
+          working_directory: ~/project
+          name: Run tests & collect coverage
+          command: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+      - codecov/upload
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
